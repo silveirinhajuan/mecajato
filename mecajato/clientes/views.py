@@ -26,7 +26,7 @@ def clientes(request):
         cliente.save()
         
         for carro, placa, ano in zip(carros, placas, anos):
-            car = Carro(carro=carro, placa=placa, ano=ano)
+            car = Carro(carro=carro, placa=placa, ano=ano, cliente=cliente)
             car.save() #TODO resolver problema com db
         
         
