@@ -9,17 +9,17 @@
 {% block 'dashboard' %}
     <div class="container">
         <div class="row">
-            <div class="col-md card-dashboard">
+            <div onclick="exibir_form('1')" class="col-md card-dashboard">
                 <p class="text-card">Add Clientes</p>
             </div>
 
-            <div class="col-md card-dashboard">
+            <div onclick="exibir_form('2')" class="col-md card-dashboard">
                 <p class="text-card">Atualizar Clientes</p>
             </div>
             
         </div>
 
-        <div class="adicionar-cliente">
+        <div class="adicionar-cliente" id="adicionar-cliente">
 
             <form action="{% url 'clientes' %}" method="POST">{% csrf_token %}  
       
@@ -95,6 +95,39 @@
             
       
         </div>
+
+        <div id="att_cliente">
+            <p></p>
+            <select name="" id="cliente-select" class="form-control" onchange="dados_cliente()">
+                <option value="">Selecione</option>
+                {% for cliente in clientes%}
+                <option value="{{cliente.id}}">{{cliente}}</option>
+                {%endfor%}
+            </select>
+            <br>
+            <hr>
+
+            <div id="form-att-cliente">
+                <input type="hidden" id="id">
+                <p>Nome:</p>
+                <input id="nome" type="text" class='form-control'>
+                <p>Sobrenome:</p>
+                <input id="sobrenome" type="text" class='form-control'>
+                <p>E-mail:</p>
+                <input id="email" type="text" class='form-control'>
+                <p>CPF:</p>
+                <input id="cpf" type="text" class='form-control'>
+                <br>
+                <input onclick="update_cliente()"  type="submit" value="salvar" class="btn btn-success" > 
+                <hr style="background-color: gray;">
+                <h2>Carros</h2>
+                <div id="carros">
+                    
+                </div>
+            </div>
+
+        </div>
+
     </div>
     <script src="{% static 'clientes/js/clientes.js' %}"></script>
 {% endblock %}
