@@ -55,18 +55,18 @@ function dados_cliente(){
         document.getElementById('form-att-cliente').style.display = 'block'
         
         nome = document.getElementById('nome_att_cliente')
-        nome.value = data['nome']
+        nome.value = data['cliente']['nome']
         
         sobrenome = document.getElementById('sobrenome_att_cliente')
-        sobrenome.value = data['sobrenome']
+        sobrenome.value = data['cliente']['sobrenome']
         
         cpf = document.getElementById('cpf')
-        cpf.value = data['cpf']
+        cpf.value = data['cliente']['cpf']
 
         
         email = document.getElementById('email')
-        email.value = data['email']
-        //TODO entender por que o nome e sobrenome não preenchem / To understand why the first name and last name are not being filled.
+        email.value = data['cliente']['email']
+        
         
     })
 
