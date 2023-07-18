@@ -5,6 +5,8 @@ import re
 from django.core import serializers
 import json
 
+from django.views.decorators.csrf import csrf_exempt
+
 def clientes(request):
     if request.method == "GET":
         clientes_list = Cliente.objects.all()
@@ -42,7 +44,8 @@ def clientes(request):
         
         
         return HttpResponse(f'O usuário {nome} {sobrenome} do email {email} e cpf {cpf} cadastrou o(s) carro(s) {carros} com as placas {placas} com os anos {anos}')
-    
+
+@csrf_exempt
 def att_cliente(request):
     id_cliente = request.POST.get('id_cliente')
     cliente = Cliente.objects.filter(id=id_cliente)
