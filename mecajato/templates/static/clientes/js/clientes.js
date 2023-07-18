@@ -54,10 +54,10 @@ function dados_cliente(){
         
         document.getElementById('form-att-cliente').style.display = 'block'
         
-        nome = document.getElementById('nome')
+        nome = document.getElementById('nome_att_cliente')
         nome.value = data['nome']
         
-        sobrenome = document.getElementById('sobrenome')
+        sobrenome = document.getElementById('sobrenome_att_cliente')
         sobrenome.value = data['sobrenome']
         
         cpf = document.getElementById('cpf')
